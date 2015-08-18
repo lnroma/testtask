@@ -1,0 +1,38 @@
+<?php
+/** @var Shapes_Block_Show $this */
+?>
+<form method="post" action="?controller=shapes&action=pointshape">
+    <fieldset id="form_image">
+        <table>
+            <?php foreach ($this->getFormFields() as $_key => $_fields): ?>
+                <tr>
+                    <?php if ($_fields['type'] == 'select'): ?>
+                        <?php for ($i = 0; $i < $_fields['multiplicate']; $i++): ?>
+                            <td>
+                                <select name="<?php echo $_key ?>">
+                                    <?php foreach ($_fields['values'] as $_val => $_label): ?>
+                                        <option <?php if ($_val == '-') echo 'selected' ?>
+                                            value="<?php echo $_val ?>"><?php echo $_label ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        <?php endfor; ?>
+                    <?php elseif ($_fields['type'] == 'text'): ?>
+                        <?php for ($i = 0; $i < $_fields['multiplicate']; $i++): ?>
+                            <td>
+                                <?php echo $_fields['label'] ?><input type="text" name="<?php echo $_key ?>">
+                            </td>
+                        <?php endfor; ?>
+                    <?php elseif ($_fields['type'] == 'checkbox'): ?>
+                        <?php for ($i = 0; $i < $_fields['multiplicate']; $i++): ?>
+                            <td>
+                                <?php echo $_fields['label'] ?><input type="checkbox" value="true" name="<?php echo $_key ?>">
+                            </td>
+                        <?php endfor; ?>
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </fieldset>
+    <input type="submit" name="submit" value="submit"/><br/>
+</form>
