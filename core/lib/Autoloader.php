@@ -1,13 +1,15 @@
 <?php
-
 /**
+ * 
  * @autor naumov roman <family_89@mail.ru>
  *
  * @codepool core
  * @package lib
  *
  * this auto loader
- *
+ * 
+ * Мне очень стыдно за этот файл, так как есть функция в php __autoload();
+ * 
  * Class Core_Lib_Autoloader
  */
 class Core_Lib_Autoloader
